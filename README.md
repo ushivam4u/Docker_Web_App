@@ -1,4 +1,4 @@
-# Docker_webTools
+# Docker_WebTools
 The task is based on creating a Web Application for Docker, in which we are performing operations by giving commands using Web UI. Some of the common examples of commands that can be executed using this WebApp are:
 <br>
 👉docker images <br>
