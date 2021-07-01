@@ -1,0 +1,150 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+.heading{
+    font-size:25px;
+    font-weight: 700;
+    text-align: center;
+    /* padding:20px; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+.docker-svg{
+    color:blue;
+    /* font-size: 30vh; */
+    font-size: 300px;
+    animation: svg 3s infinite;
+}
+.container{
+    background-color: #0002;
+    min-height:90vh;
+    /* position: fixed; */
+    width:90vw;
+    margin:0px 5vw 5vh 5vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+.container1{
+    width: 100%;
+    position: relative;
+    height: 45vh;
+}
+.container2{
+    min-height: 40vh;
+    width: 100%;
+    padding:5vw 5vh;
+    /* display: none; */
+}
+.center{
+    width:100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.center2{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+.hints{
+    background-color: white;
+    padding:10px;
+    position: absolute;
+    top:0px;
+    right:20px;
+    width:400px;
+    border-radius: 10px;
+    color:blue;
+}
+.b{
+    font-weight: 600;
+}
+.p{
+    padding:5px;
+}
+.center3{
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+    flex-direction: row;
+    align-items: center;
+}
+.center3 button{
+    background-color: blue;
+    color:white;
+    font-weight: 1000;
+}
+button{
+    margin:0px auto;
+    border:none;
+    padding:10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top:10px;
+    /* transition: 1s; */
+}
+button:hover{
+    background-color: #aaa;
+}
+input{
+    margin-top:100px;
+    margin-left:-40px;
+    border-radius: 10px;
+    padding:8px;
+    background-color: black;
+    color:white;
+    font-weight: 550;
+}
+input:focus{
+    outline: none;
+    border:0.5px solid #aaa;
+}
+.ouput-box{
+    border:0.5px solid #eee;
+    min-height: 100px;
+    width:100%;
+    padding:10px;
+    border-radius: 10px;
+
+    background-color: white;
+
+    background-color: white;
+    color:blue;
+
+}
+.error{
+    color:red;
+    display: none;
+    margin-left:-80px;
+}
+
+@keyframes svg {
+    0%{
+        font-size:250px;
+    }
+    50%{
+        font-size: 300px;
+    }
+    100%{
+        font-size: 250px;
+    }
+}

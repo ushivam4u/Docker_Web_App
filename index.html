@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./docker.css" />
+    <title>Docker WebTool</title>
+  </head>
+  <body>
+    <div class='heading'>
+      Docker WebTool
+    </div>
+    <div class="container">
+      <div class="container1">
+        <div class="center">
+          <i class="fab fa-docker docker-svg"></i>
+        </div>
+
+
+        <div class="center2">
+          <!-- <form action=""> -->
+            <div>
+              <input
+              id="inp"
+              type="text"
+              placeholder="type docker command.."
+            /><br />
+            <div class='error'>Please write only container/image name</div>
+            <button onclick="cgi()">Submit</button>
+            </div>
+
+          <!-- </form> -->
+        </div>
+        <div class="hints">
+          <div class="b">Useful command lists</div>
+          <div class="p">
+            <div class="b">To get running containers..</div>
+            <div>docker ps</div>
+          </div>
+          <div class="p">
+ <div class="b">To get all containers..</div>
+            <div>docker ps -a</div>
+          </div>
+          <div class="p">
+            <div class="b">To run a container..</div>
+            <div>docker run -dt [image_name] </div>
+          </div>
+          <div class="p">
+            <div class="b">To remove a container..</div>
+            <div>docker rm [container_name] </div>
+          </div>
+          <div class="p">
+            <div class="b">To remove all the container..</div>
+            <div>docker rm -f  $(docker container ls -qa) </div>
+          </div>
+
+        </div>
+        <div class="center3">
+          <!-- <div style="text-align: right;width:50%">
+
+        </div> -->
+          <div style="margin-left: 5vw"><b>Direct Actions</b></div>
+
+          <button onclick="dImages()">Images List</button>
+          <button onclick="runContainer()">Container list</button>
+          <button onclick="cmd('docker run -dt')">Run Container</button>
+          <button onclick="cmd('docker rm -f')">Remove Container</button>
+          <button onclick="cmd('docker rmi --force')">Remove Image</button>
+        </div>
+      </div>
+      <div class="container2">
+        <div class="ouput-box">
+          <pre id="output">
+
+          </pre>
+        </div>
+      </div>
+    </div>
+    <script>
+  document.querySelector(".container2").style.display = "block";
+
+      function cgi(){
+        console.log('hii')
+        var input= document.getElementById("inp").value
+        var xhr= new XMLHttpRequest();
+        xhr.open("GET","http://IP_address/cgi-bin/docker.py?x="+input, true);
+        xhr.send();
+        xhr.onload= function(){
+                console.log("onload")
+          var output= xhr.responseText;
+                console.log(output)
+          document.getElementById("output").innerHTML= output
+        }
+      }
+      function dImages(){
+        document.getElementById("inp").value='docker images';
+        cgi();
+      }
+      function runContainer(){
+        document.getElementById("inp").value='docker ps -a';
+        cgi();
+      }
+      function cmd(str){
+        document.querySelector(".error").style.display = "none";
+        var inputValue = document.getElementById("inp").value;
+        if(inputValue){
+          document.getElementById("inp").value= str+" "+inputValue;
+          cgi();
+        }else{
+          document.querySelector(".error").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
